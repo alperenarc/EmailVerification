@@ -26,8 +26,6 @@ namespace EmailConfirmation.Controllers
 
             return View(data);
         }
-        
-
         // GET: Confirmation/Edit/5
         public async Task<IActionResult> Verification(int? id)
         {
