@@ -1,0 +1,18 @@
+﻿@model EmailConfirmation.Models.UserViewModel
+@{
+    ViewData["Title"] = "Default";
+}
+
+<h2>Default</h2>
+
+@foreach (var user in Model.users)
+{
+    @user.Id
+    <br />
+    @user.GuideCode
+    <br />
+    @user.Name
+    <br />
+    @user.Email
+    <br />
+}

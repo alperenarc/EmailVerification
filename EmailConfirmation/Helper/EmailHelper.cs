@@ -8,7 +8,7 @@ namespace EmailConfirmation.Helper
 {
     public static class EmailHelper
     {
-        public static void SendMail(string email, int Id,string GuideCode)
+        public static void SendMail(string email,string GuideCode)
         {
 
             var message = new MimeMessage();
@@ -17,7 +17,7 @@ namespace EmailConfirmation.Helper
             message.Body = new TextPart("html")
             {
                 Text = "Hesabınızı onaylamak için aşağıdaki linke tıklayınız... <br/>" +
-                "<a href='https://localhost:5001/"+GuideCode+"/"+Id+"'>Onaylama Linki<a/>"
+                "<a href='https://localhost:5001/Confirmation/Verification/?guidcode="+GuideCode+"'>Onaylama Linki<a/>"
                 //Confirmation / Verification /
             };
 
@@ -25,7 +25,7 @@ namespace EmailConfirmation.Helper
             {
                 //587
                 client.Connect("srvm04.turhost.com", 587, false);
-                client.Authenticate("info@nootelib.com", "Qwerty123");
+                client.Authenticate("info@nootelib.com", "***");
                 client.Send(message);
                 client.Disconnect(true);
             };

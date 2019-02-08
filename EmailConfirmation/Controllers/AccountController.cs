@@ -62,7 +62,7 @@ namespace EmailConfirmation.Controllers
                 _context.Add(user);
                 await _context.SaveChangesAsync();
 
-                Helper.EmailHelper.SendMail(user.Email, user.Id,user.GuideCode);
+                Helper.EmailHelper.SendMail(user.Email,user.GuideCode);
 
 
                 return RedirectToAction(nameof(Index));

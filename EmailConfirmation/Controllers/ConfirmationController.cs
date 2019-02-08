@@ -19,22 +19,25 @@ namespace EmailConfirmation.Controllers
         }
 
         // GET: Confirmation
-        public async Task<IActionResult> Index(string guid, int id)
+        public async Task<IActionResult> Index(string guidcode, int id)
         {
+            guidcode = HttpContext.Request.Query["guidcode"];
 
-            var data = await _context.Users.FirstOrDefaultAsync(User => User.Id == id);
+            var data = await _context.Users.ToListAsync();
 
             return View(data);
         }
         // GET: Confirmation/Edit/5
-        public async Task<IActionResult> Verification(int? id)
+        public async Task<IActionResult> Verification(string guidcode)
         {
-            if (id == null)
+            guidcode = HttpContext.Request.Query["guidcode"];
+            if (guidcode == null)
             {
                 return NotFound();
             }
 
-            var user = await _context.Users.FindAsync(id);
+            //var user = await _context.Users.FindAsync(guidcode);
+            var user = await  _context.Users.FirstOrDefaultAsync(p=>p.GuideCode == guidcode);
             user.ConfirmState = true;
             _context.Update(user);
             await _context.SaveChangesAsync();
