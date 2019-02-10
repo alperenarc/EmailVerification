@@ -2,4 +2,4 @@
 
 
 # 1-) Email Helper
-<img src="EmailHelper.png" alt="">
+<img src="EmailHelper.pnghttps://github.com/alperenarc/EmailVerification/blob/master/Images/Account%20Controller%20Register.PNG?raw=true" alt="">
